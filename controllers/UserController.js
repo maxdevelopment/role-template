@@ -10,7 +10,8 @@ exports.create = function (req, res) {
     } else {
 
         var newUser = new UserModel({
-            name: req.body.name,
+            full_name: req.body.full_name,
+            login: req.body.login,
             password: req.body.password,
             role: req.body.role
         });

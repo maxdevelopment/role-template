@@ -18,6 +18,10 @@ app.use(logger('dev'));
 // Static content
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Setup route
+var setup = require('./config/setup').create;
+app.get('/api/setup', setup);
+
 // Auth route
 var authRoute = require('./controllers/AuthController').create;
 app.post('/api/auth', authRoute);

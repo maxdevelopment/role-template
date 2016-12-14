@@ -4,19 +4,38 @@ var Schema = mongoose.Schema;
 var db = require('../config/database').db;
 
 var UserSchema = new Schema({
-    name: {
-        type: String,
-        unique: true,
-        required: true
+        name: {
+            first: String,
+            last: String
+        },
+        login: {
+            type: String,
+            unique: true,
+            required: true
+        },
+        password: {
+            type: String,
+            required: true
+        },
+        role: {
+            type: Number,
+            required: true
+        }
     },
-    password: {
-        type: String,
-        required: true
-    },
-    role: {
-        type: Number,
-        required: true
+    {
+        toObject: { virtuals: true },
+        toJSON: { virtuals: true }
     }
+);
+
+UserSchema.virtual('full_name').get(function () {
+    return this.name.first + ' ' + this.name.last;
+});
+
+UserSchema.virtual('full_name').set(function (name) {
+    var split = name.split(' ');
+    this.name.first = split[0];
+    this.name.last = split[1];
 });
 
 UserSchema.pre('save', function (next) {
@@ -48,7 +67,7 @@ UserSchema.methods.comparePassword = function (pass, cb) {
     });
 };
 
-UserSchema.methods.getRole = function() {
+UserSchema.methods.getRole = function () {
     var role = {};
     switch (this.role) {
         case 1:
