@@ -9,25 +9,26 @@ var params = {
     jwtFromRequest: ExtractJwt.fromHeader('x-access-token')
 };
 
-module.exports = function() {
-    var strategy = new Strategy(params, function(payload, done) {
-        User.findOne({id: payload.id}, function(err, user) {
-            if (err) {
-                return done(err, false);
-            }
-            if (user) {
-                done(null, user);
-            } else {
-                done(null, false);
-            }
-        });
+module.exports = function () {
+    var strategy = new Strategy(params, function (payload, done) {
+        User.findOne({id: payload.id}).exec()
+            .catch(function (err) {
+                if (err) throw err;
+            })
+            .then(function (user) {
+                if (user) {
+                    done(null, user);
+                } else {
+                    done(null, false);
+                }
+            })
     });
     passport.use(strategy);
     return {
-        initialize: function() {
+        initialize: function () {
             return passport.initialize();
         },
-        authenticate: function() {
+        authenticate: function () {
             return passport.authenticate("jwt", cfg.jwtSession);
         }
     };
