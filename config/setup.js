@@ -1,6 +1,6 @@
 var UserModel = require('../models/Users').UserModel;
 
-exports.create = function (req, res, next) {
+exports.create = function (req, res) {
     var newUser = new UserModel({
         full_name: 'God mode',
         login: 'admin',
