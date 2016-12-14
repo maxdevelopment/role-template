@@ -4,7 +4,7 @@ var jwtConfig = require('../config/jwt');
 
 exports.create = function (req, res) {
     UserModel.findOne({
-        name: req.body.name
+        login: req.body.login
     }, function (err, user) {
 
         if (err) throw err;
