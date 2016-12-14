@@ -6,7 +6,7 @@ var ExtractJwt = passportJWT.ExtractJwt;
 var Strategy = passportJWT.Strategy;
 var params = {
     secretOrKey: cfg.jwtSecret,
-    jwtFromRequest: ExtractJwt.fromHeader('x-access-token')
+    jwtFromRequest: ExtractJwt.fromHeader(cfg.jwtExtractHeader)
 };
 
 module.exports = function () {

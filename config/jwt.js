@@ -1,4 +1,5 @@
 module.exports = {
     jwtSecret: "SecretPhraseHere",
-    jwtSession: {session: false}
+    jwtSession: {session: false},
+    jwtExtractHeader: "x-access-token"
 };
