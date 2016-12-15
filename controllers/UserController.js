@@ -24,7 +24,7 @@ exports.create = function (req, res) {
 
         newUser.save()
             .catch(function (err) {
-                if (err) throw err;
+                res.json({success: false, msg: 'Login not unique.'});
             })
             .then(function () {
                 res.json({success: true, msg: 'Successful created new user.'});
