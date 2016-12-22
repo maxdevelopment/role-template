@@ -1,4 +1,6 @@
 var mongoose = require('mongoose');
+    mongoose.Promise = require('bluebird');
+
 var db = mongoose.createConnection('mongodb://localhost/role-db');
 
 db.on('error', function (err) {
