@@ -16,10 +16,11 @@ var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
- * Create HTTP server.
+ * Create HTTP server with socket.io
  */
 
 var server = http.createServer(app);
+require('../config/socket').initialize(server);
 
 /**
  * Listen on provided port, on all network interfaces.
