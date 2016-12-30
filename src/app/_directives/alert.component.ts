@@ -1,18 +1,24 @@
 ﻿import { Component, OnInit } from '@angular/core';
 
 import { AlertService } from '../_services/index';
+import {MdSnackBar} from '@angular/material';
 
 @Component({
-    selector: 'alert',
-    templateUrl: './alert.component.html'
+	selector: 'alert',
+	templateUrl: './alert.component.html'
 })
 
 export class AlertComponent {
-    message: any;
+	message: any;
 
-    constructor(private alertService: AlertService) { }
+	constructor(private alertService: AlertService,public snackBar: MdSnackBar) { }
 
-    ngOnInit() {
-        this.alertService.getMessage().subscribe(message => { this.message = message; });
-    }
+	ngOnInit() {
+		this.alertService.getMessage().subscribe(message => { 
+			//this.message = message; 
+			if (message) {
+				this.snackBar.open(message.text, 'Undo', { duration: 3000 });
+			}
+		});
+	}
 }

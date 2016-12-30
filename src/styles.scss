@@ -39,6 +39,10 @@ body {
 .full-width {
   width: 100%;
 }
+.brand {
+	color: #fff;
+	text-decoration: none;
+}
 
 @import './app/login/login.component';
 @import './app/register/register.component';
