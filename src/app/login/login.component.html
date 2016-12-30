@@ -18,9 +18,11 @@
            </md-list>
        </md-card-content>
        <md-card-actions>
-           <md-spinner *ngIf="loading"></md-spinner>
            <button md-raised-button [disabled]="loading">Login</button>
            <a md-button [routerLink]="['/register']">Register</a>
        </md-card-actions>
+       <div class="spinner">
+           <md-spinner *ngIf="loading"></md-spinner>
+       </div>
    </form>
 </md-card>

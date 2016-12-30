@@ -4,35 +4,36 @@
         <md-card-content>
             <md-list>
                 <md-list-item>
-                 <md-input-container class="full-width">
-                 <input md-input type="text" placeholder="First Name" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" required />
-                 </md-input-container>
-                 <div *ngIf="f.submitted && !firstName.valid" class="help-block">First Name is required</div>
-             </md-list-item>
-             <md-list-item>
-                 <md-input-container class="full-width">
-                     <input md-input type="text" placeholder="Last Name" name="lastName" [(ngModel)]="model.lastName" #lastName="ngModel" required />
-                 </md-input-container>
-                 <div *ngIf="f.submitted && !lastName.valid" class="help-block">Last Name is required</div>
-             </md-list-item>
-             <md-list-item>
-                 <md-input-container class="full-width">
-                     <input md-input type="text" placeholder="E-mail" name="username" [(ngModel)]="model.username" #username="ngModel" required />
-                 </md-input-container>
-                 <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
-             </md-list-item>
-             <md-list-item>
-                 <md-input-container class="full-width">
-                     <input md-input type="password" placeholder="Password" name="password" [(ngModel)]="model.password" #password="ngModel" required/>
-                 </md-input-container>
-                 <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
-             </md-list-item>
-         </md-list>
-     </md-card-content>
-     <md-card-actions>
-         <md-spinner *ngIf="loading"></md-spinner>
-         <button md-raised-button [disabled]="loading">Register</button>
-         <a md-button [routerLink]="['/login']">Cancel</a>
-     </md-card-actions>
- </form>
+                   <md-input-container class="full-width">
+                       <input md-input type="text" placeholder="First Name" name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel"/>
+                   </md-input-container>
+                   <div *ngIf="f.submitted && !firstName.valid" class="help-block">Full name</div>
+               </md-list-item>
+               <md-list-item>
+                   <md-input-container class="full-width">
+                       <input md-input type="text" placeholder="E-mail" name="login" [(ngModel)]="model.login" #login="ngModel" required />
+                   </md-input-container>
+                   <div *ngIf="f.submitted && !login.valid" class="help-block">Username is required</div>
+               </md-list-item>
+               <md-list-item>
+                   <md-input-container class="full-width">
+                       <input md-input type="password" placeholder="Password" name="password" [(ngModel)]="model.password" #password="ngModel" required/>
+                   </md-input-container>
+                   <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+               </md-list-item>
+               <md-list-item>
+                 <md-select placeholder="User role" [(ngModel)]="model.role" #role="ngModel" name="role" required class="full-width">
+                    <md-option [value]="1">Admin</md-option>
+                    <md-option [value]="2">Chief</md-option>
+                    <md-option [value]="3">Manager</md-option>
+                </md-select>
+          </md-list-item>
+      </md-list>
+  </md-card-content>
+  <md-card-actions>
+   <md-spinner *ngIf="loading"></md-spinner>
+   <button md-raised-button [disabled]="loading">Register</button>
+   <a md-button [routerLink]="['/login']">Cancel</a>
+</md-card-actions>
+</form>
 </md-card>
