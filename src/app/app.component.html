@@ -1,8 +1,17 @@
-<div class="jumbotron">
-    <div class="container">
-        <div class="col-sm-8 offset-sm-2">
-            <alert></alert>
-            <router-outlet></router-outlet>
-        </div>
-    </div>
-</div>
+<md-sidenav-container>
+	<md-sidenav #sidenav mode="side">
+		Sidenav
+	</md-sidenav>
+
+	<md-toolbar color="primary">
+		<button md-button (click)="sidenav.toggle()">
+			<i class="material-icons app-toolbar-menu">menu</i>
+		</button>
+
+		Sushivesla HR
+	</md-toolbar>
+
+	<alert></alert>
+	<router-outlet></router-outlet>
+	<!-- primary content -->
+</md-sidenav-container>
