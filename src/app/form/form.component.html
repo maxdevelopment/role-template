@@ -1,3 +1,80 @@
-<p>
-  form works!
-</p>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-2">
+			<div class="guest_form">
+				<md-toolbar color="accent">
+					<span>Анкета</span>
+				</md-toolbar>
+				<md-card class="center-form">
+					<form name="form" (ngSubmit)="f.form.valid && submit_register()" #f="ngForm" novalidate>
+						<md-card-content>
+							<md-list>
+								<md-list-item>
+									<div class="row">
+										<div class="col-sm-6">
+											<md-input-container class="full-width">
+												<input md-input type="text" placeholder="Ф.И.О." name="username" [(ngModel)]="model.username" #username="ngModel" required/>
+											</md-input-container>
+											<div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+										</div>
+										<div class="col-sm-6">
+											<md-input-container class="full-width">
+												<input md-input type="text" placeholder="Дата рождения (старше 18 лет)" name="birthdate" [(ngModel)]="model.birthdate" #birthdate="ngModel" required/>
+											</md-input-container>
+											<div *ngIf="f.submitted && !birthdate.valid" class="help-block">Birthdate is required</div>
+										</div>
+									</div>
+								</md-list-item>
+								<md-list-item>
+									<div class="row">
+										<div class="col-sm-6">
+											<md-input-container class="full-width">
+												<input md-input type="text" placeholder="Адрес" name="address" [(ngModel)]="model.address" #address="ngModel" required/>
+											</md-input-container>
+											<div *ngIf="f.submitted && !address.valid" class="help-block">Address is required</div>
+										</div>
+										<div class="col-sm-6">
+											<md-input-container class="full-width">
+												<input md-input type="text" placeholder="Телефон" name="phone" [(ngModel)]="model.phone" #phone="ngModel" required/>
+											</md-input-container>
+											<div *ngIf="f.submitted && !phone.valid" class="help-block">Phone is required</div>
+										</div>
+									</div>
+								</md-list-item>
+								<md-list-item>
+									<md-input-container class="full-width">
+										<input md-input type="text" placeholder="На какую должность претендуете?" name="position" [(ngModel)]="model.position" #position="ngModel" required/>
+									</md-input-container>
+									<div *ngIf="f.submitted && !position.valid" class="help-block">Position is required</div>
+								</md-list-item>
+								<h3 md-subheader>В каком кафе(закусочной) "СУШИ ВЕСЛА" вы хотите работать?</h3>
+								<md-list-item>
+									<section class="checkbox-section">
+										<md-checkbox class="checkbox-margin" [(ngModel)]="model.cafe.cafe_1" name="cafe">пр-т. Машерова 78</md-checkbox>
+										<md-checkbox class="checkbox-margin" [(ngModel)]="model.cafe.cafe_2" name="cafe">ул. Я.Коласа 37 (РЦ "Айсберг")</md-checkbox>
+										<md-checkbox class="checkbox-margin" [(ngModel)]="model.cafe.cafe_3" name="cafe">ул. Притыцкого 83</md-checkbox>
+										<md-checkbox class="checkbox-margin" [(ngModel)]="model.cafe.cafe_4" name="cafe">пр-т. Рокоссовского 78</md-checkbox>
+										<md-checkbox class="checkbox-margin" [(ngModel)]="model.cafe.cafe_5" name="cafe">ул. Шафарнянская 11 (БЦ "Порт")</md-checkbox>
+										<md-checkbox class="checkbox-margin" [(ngModel)]="model.cafe.cafe_6" name="cafe">ул. Уманская 54 (ТЦ "Глобо")</md-checkbox>
+									</section>
+								</md-list-item>
+								<md-list-item>
+									<md-input-container class="full-width">
+									<input md-input type="text" placeholder='Как долго Вы планируете работать в компаниии "Суши Весла"?' name="how_long" [(ngModel)]="model.how_long" #how_long="ngModel"/>
+									</md-input-container>
+								</md-list-item>
+							</md-list>
+						</md-card-content>
+						<md-card-actions>
+							<button md-raised-button [disabled]="loading">Register</button>
+							<a md-button [routerLink]="['/']">Cancel</a>
+						</md-card-actions>
+						<div class="spinner">
+							<md-spinner *ngIf="loading"></md-spinner>
+						</div>
+					</form>
+				</md-card>
+			</div>
+		</div>
+	</div>
+</div>

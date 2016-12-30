@@ -27,6 +27,10 @@ export class UserService {
         return this.http.delete('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
     }
 
+    form_register(data) {
+        return this.http.post('/api/user', data, this.jwt()).map((response: Response) => response.json());
+    }
+
     // private helper methods
 
     private jwt() {
