@@ -28,7 +28,7 @@ export class UserService {
     }
 
     form_register(data) {
-        return this.http.post('/api/user', data, this.jwt()).map((response: Response) => response.json());
+        return this.http.post('/api/form', data, this.jwt()).map((response: Response) => response.json());
     }
 
     // private helper methods
