@@ -1,5 +1,5 @@
 ﻿import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { Http, Headers,RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
 
@@ -8,7 +8,7 @@ export class AuthenticationService {
     constructor(private http: Http) { }
 
     login(username: string, password: string):Observable<any> {
-        return this.http.post('/api/auth', JSON.stringify({ login: username, password: password }))
+        return this.http.post('/api/auth', { login: username, password: password }, this.headers())
             .map((response: Response) => {
                 // login successful if there's a jwt token in the response
                 let user = response.json();
@@ -23,5 +23,10 @@ export class AuthenticationService {
     logout() {
         // remove user from local storage to log user out
         localStorage.removeItem('currentUser');
+    }
+
+    private headers() {
+        let headers = new Headers({ 'Content-Type': 'application/json'});
+        return new RequestOptions({ headers: headers });
     }
 }
