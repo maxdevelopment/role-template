@@ -46,7 +46,8 @@ export class SocketService {
     // Handle connection opening
     private connect() {
         // Auth after connect
-        this.socket.emit("user_token");
+        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.socket.emit("user_token",currentUser.token);
     }
 
     // Handle connection closing
