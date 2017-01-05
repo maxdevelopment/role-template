@@ -10,7 +10,7 @@ import { UserService, SocketService } from '../_services/index';
 export class HomeComponent implements OnInit {
     currentUser: User;
     users: User[] = [];
-    worksheets: any = [];
+    worksheets: Array<any> = [];
 
     constructor(private userService: UserService, private socket: SocketService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -21,6 +21,9 @@ export class HomeComponent implements OnInit {
     }
 
     private listenWorksheets() {
-        this.socket.on('worksheets').subscribe(worksheets => { this.worksheets = worksheets; });
+        this.socket.on('worksheets').subscribe(worksheets => {
+            this.worksheets = worksheets;
+            console.log(this.worksheets)
+        });
     }
 }
