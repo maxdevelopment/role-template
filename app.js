@@ -26,6 +26,10 @@ app.get('/api/setup', setup);
 var authRoute = require('./controllers/AuthController').create;
 app.post('/api/auth', authRoute);
 
+// Job form route
+var formRoute = require('./controllers/FormController').create;
+app.post('/api/form', formRoute);
+
 // Load routes
 require('./config/boot')(app);
 
