@@ -1,15 +1,30 @@
-﻿<div class="col-md-8 offset-md-2">
-    <h1>Hi {{currentUser.firstName}}!</h1>
-    <p>You're logged in!!</p>
-    <h3>All registered users:</h3>
-    <ul class="list-group">
-        <li *ngFor="let user of users" class="list-group-item">
-            {{user.username}} ({{user.firstName}} {{user.lastName}})
-            - <a class="btn" (click)="deleteUser(user.id)">Delete</a>
-        </li>
-    </ul>
-    <br/>
-    <p>
-        <a class="btn btn-outline-primary" [routerLink]="['/login']">Logout</a>
-    </p>
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1>Hello User!</h1>
+            <p>You're logged in!! <a class="btn btn-outline-primary" [routerLink]="['/login']">Logout</a></p>
+        </div>
+    </div>
+
+    <div class="worksheets">
+        <div class="row">
+            <div class="col-sm-3">
+                <md-card class="worksheet-card">
+                    <md-card-header>
+                        <md-card-title>Volodymyr Golosay</md-card-title>
+                        <md-card-subtitle>Front-End developer</md-card-subtitle>
+                    </md-card-header>
+                    <md-card-content>
+                        <p>
+                            Maybe some information about employee?
+                        </p>
+                    </md-card-content>
+                    <md-card-actions align="end">
+                        <button md-button>Archive</button>
+                        <button md-button>View</button>
+                    </md-card-actions>
+                </md-card>
+            </div>
+        </div>
+    </div>
 </div>
