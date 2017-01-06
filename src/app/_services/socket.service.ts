@@ -4,7 +4,7 @@ import * as io from "socket.io-client";
 
 @Injectable()
 export class SocketService {
-    private host: string = window.location.protocol + "//" + window.location.hostname + ":" + 3000;
+    private host: string = window.location.protocol + "//" + window.location.hostname + ":" + 3100;
     private socket: any;
 
     constructor() {
