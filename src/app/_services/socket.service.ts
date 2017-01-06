@@ -32,17 +32,6 @@ export class SocketService {
         });
     }
 
-    getWorksheets() {
-        return new Observable<any> (observer => {
-            this.socket.on('worksheets', (data) => {
-                observer.next(data);
-            });
-            return () => {
-                this.socket.disconnect();
-            };
-        });
-    }
-
     // Handle connection opening
     private connect() {
         // Auth after connect

@@ -1,6 +1,28 @@
 <md-sidenav-container>
-	<md-sidenav #sidenav mode="side">
-		Sidenav
+	<md-sidenav #sidenav mode="side" class="sidebar"  opened="true">
+        <md-toolbar>
+            <span>Меню</span>
+        </md-toolbar>
+        <md-nav-list>
+            <md-list-item [routerLink]="['/']">
+                <span md-line>Новые анкеты</span>
+                <button md-icon-button>
+                    <md-icon>fiber_new</md-icon>
+                </button>
+            </md-list-item>
+            <md-list-item [routerLink]="['/db']">
+                <span md-line>Рабочая база</span>
+                <button md-icon-button>
+                    <md-icon>account_box</md-icon>
+                </button>
+            </md-list-item>
+            <md-list-item [routerLink]="['/archive']">
+                <span md-line>Архив</span>
+                <button md-icon-button>
+                    <md-icon>folder_shared</md-icon>
+                </button>
+            </md-list-item>
+        </md-nav-list>
 	</md-sidenav>
 
 	<md-toolbar color="primary">

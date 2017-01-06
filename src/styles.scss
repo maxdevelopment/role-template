@@ -45,6 +45,12 @@ html, body, material-app, md-sidenav-container, .my-content {
 md-card-actions {
 	text-align: center;
 }
-
+.worksheets {
+  margin: 20px 0;
+}
+md-dialog-container {
+  max-height: 90vh;
+}
+@import './app/app.component';
 @import './app/login/login.component';
 @import './app/register/register.component';

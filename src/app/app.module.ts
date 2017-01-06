@@ -15,6 +15,8 @@ import {HomeComponent} from './home/index';
 import {LoginComponent} from './login/index';
 import {RegisterComponent} from './register/index';
 import {FormComponent} from './form/form.component';
+import { ArchiveComponent } from './archive/archive.component';
+import { DataBaseComponent } from './data-base/data-base.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +25,9 @@ import {FormComponent} from './form/form.component';
         HomeComponent,
         LoginComponent,
         RegisterComponent,
-        FormComponent
+        FormComponent,
+        ArchiveComponent,
+        DataBaseComponent
     ],
     imports: [
         MaterialModule.forRoot(),

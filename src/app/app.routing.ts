@@ -5,12 +5,16 @@ import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { AuthGuard } from './_guards/index';
 import { FormComponent } from './form/form.component';
+import { ArchiveComponent } from './archive/archive.component';
+import { DataBaseComponent } from './data-base/data-base.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'form', component: FormComponent },
+    { path: 'archive', component: ArchiveComponent },
+    { path: 'db', component: DataBaseComponent },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
