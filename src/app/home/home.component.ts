@@ -27,6 +27,7 @@ export class HomeComponent implements OnInit {
             this.worksheets = worksheets;
             console.log(this.worksheets)
         });
+        this.socket.emit('worksheets',true);
     }
 
     showInfo () {
