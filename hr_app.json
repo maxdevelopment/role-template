@@ -1,0 +1,17 @@
+{
+  "apps": [
+    {
+      "name": "hr-sushi",
+      "script": "./bin/www",
+      "watch": true,
+      "ignore_watch" : ["e2e", "node_modules", "public", "src"],
+      "watch_options": {
+        "followSymlinks": false
+      },
+      "env": {
+        "NODE_ENV": "production",
+        "PORT": "3100"
+      }
+    }
+  ]
+}
