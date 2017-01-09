@@ -10,16 +10,16 @@ import { DataBaseComponent } from './data-base/data-base.component';
 import { HrModalComponent } from './hr-modal/hr-modal.component';
 
 const appRoutes: Routes = [
-    { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+    { path: '', component: FormComponent },
+    { path: 'new', component: HomeComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'form', component: FormComponent },
-    { path: 'archive', component: ArchiveComponent },
-    { path: 'db', component: DataBaseComponent },
+    { path: 'archive', component: ArchiveComponent, canActivate: [AuthGuard] },
+    { path: 'db', component: DataBaseComponent, canActivate: [AuthGuard] },
     { path: 'modal-form', component: HrModalComponent },
 
     // otherwise redirect to home
-    { path: '**', redirectTo: '' }
+    { path: '**', redirectTo: 'new' }
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

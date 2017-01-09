@@ -1,10 +1,10 @@
 <md-sidenav-container>
-	<md-sidenav #sidenav mode="side" class="sidebar"  opened="true">
+	<md-sidenav #sidenav mode="side" class="sidebar"  opened="{{side_bar}}">
         <md-toolbar>
             <span>Меню</span>
         </md-toolbar>
         <md-nav-list>
-            <md-list-item [routerLink]="['/']">
+            <md-list-item [routerLink]="['/new']">
                 <span md-line>Новые анкеты</span>
                 <button md-icon-button>
                     <md-icon>fiber_new</md-icon>
@@ -26,11 +26,26 @@
 	</md-sidenav>
 
 	<md-toolbar color="primary">
-		<button md-button (click)="sidenav.toggle()">
+		<button md-button (click)="sidenav.toggle()" [hidden]="!side_bar">
 			<i class="material-icons app-toolbar-menu">menu</i>
 		</button>
-
 		<a class="brand" [routerLink]="['/']">Sushivesla HR</a>
+
+        <span class="header-spacer"></span>
+
+        <button md-icon-button [mdMenuTriggerFor]="menu">
+            <md-icon>more_vert</md-icon>
+        </button>
+        <md-menu #menu="mdMenu">
+            <a md-menu-item [hidden]="!side_bar">
+                <md-icon>chat</md-icon>
+                <span>Уведомления</span>
+            </a>
+            <a md-menu-item [routerLink]="['/login']">
+                <md-icon>directions_walk</md-icon>
+                <span>{{side_bar ? "Выйти": "Войти"}}</span>
+            </a>
+        </md-menu>
 	</md-toolbar>
 
 	<alert></alert>
