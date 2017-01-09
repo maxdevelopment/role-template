@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="col-sm-8 col-sm-offset-2">
+		<div class="col-sm-10 col-sm-offset-1">
 			<div class="guest_form">
 				<md-toolbar color="accent">
 					<span>Анкета</span>
@@ -47,27 +47,153 @@
 									</md-input-container>
 									<div *ngIf="f.submitted && !position.valid" class="help-block">Position is required</div>
 								</md-list-item>
-								<h3 md-subheader>В каком кафе(закусочной) "СУШИ ВЕСЛА" вы хотите работать?</h3>
-								<md-list-item>
-									<section class="checkbox-section">
-										<md-checkbox class="checkbox-margin" [(ngModel)]="model.cafe.cafe_1" name="cafe">пр-т. Машерова 78</md-checkbox>
-										<md-checkbox class="checkbox-margin" [(ngModel)]="model.cafe.cafe_2" name="cafe">ул. Я.Коласа 37 (РЦ "Айсберг")</md-checkbox>
-										<md-checkbox class="checkbox-margin" [(ngModel)]="model.cafe.cafe_3" name="cafe">ул. Притыцкого 83</md-checkbox>
-										<md-checkbox class="checkbox-margin" [(ngModel)]="model.cafe.cafe_4" name="cafe">пр-т. Рокоссовского 78</md-checkbox>
-										<md-checkbox class="checkbox-margin" [(ngModel)]="model.cafe.cafe_5" name="cafe">ул. Шафарнянская 11 (БЦ "Порт")</md-checkbox>
-										<md-checkbox class="checkbox-margin" [(ngModel)]="model.cafe.cafe_6" name="cafe">ул. Уманская 54 (ТЦ "Глобо")</md-checkbox>
-									</section>
+
+                                <div class="form_constructor">
+                                    <div class="education">
+                                        <md-list>
+                                            <md-list-item *ngFor="let item of model.educations">
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <md-input-container class="full-width">
+                                                                    <input md-input type="text" placeholder="C" name="start" [(ngModel)]="item.start" #start="ngModel"/>
+                                                                </md-input-container>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <md-input-container class="full-width">
+                                                                    <input md-input type="text" placeholder="По" name="end" [(ngModel)]="item.end" #end="ngModel"/>
+                                                                </md-input-container>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <md-input-container class="full-width">
+                                                            <input md-input type="text" placeholder="Название" name="name" [(ngModel)]="item.name" #name="ngModel"/>
+                                                        </md-input-container>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <md-input-container class="full-width">
+                                                            <input md-input type="text" placeholder="Факультет" name="faculty" [(ngModel)]="item.faculty" #faculty="ngModel"/>
+                                                        </md-input-container>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <md-input-container class="full-width">
+                                                            <input md-input type="text" placeholder="Специальность" name="speciality" [(ngModel)]="item.speciality" #speciality="ngModel"/>
+                                                        </md-input-container>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <md-select class="full-width education_form" placeholder="Форма" name="form" [(ngModel)]="item.form">
+                                                            <md-option [value]="'Очная'">Очная</md-option>
+                                                            <md-option [value]="'Заочная'">Заочная</md-option>
+                                                            <md-option [value]="'Вечерняя'">Вечерняя</md-option>
+                                                            <md-option [value]="'Дистанционная'">Дистанционная</md-option>
+                                                        </md-select>
+                                                    </div>
+                                                </div>
+                                            </md-list-item>
+                                        </md-list>
+                                    </div>
+                                    <div class="add_row_btn">
+                                        <button class="full-width" md-raised-button (click)="addFormRow('educations')">Добавить образование</button>
+                                    </div>
+                                </div>
+
+                                <div class="form_constructor">
+                                    <div class="experience">
+                                        <md-list>
+                                            <md-list-item *ngFor="let item of model.experience">
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <md-input-container class="full-width">
+                                                                    <input md-input type="text" placeholder="C" name="start" [(ngModel)]="item.start" #start="ngModel"/>
+                                                                </md-input-container>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <md-input-container class="full-width">
+                                                                    <input md-input type="text" placeholder="По" name="end" [(ngModel)]="item.end" #end="ngModel"/>
+                                                                </md-input-container>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <md-input-container class="full-width">
+                                                            <input md-input type="text" placeholder="Сфера работы" name="sphere" [(ngModel)]="item.sphere" #sphere="ngModel"/>
+                                                        </md-input-container>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <md-input-container class="full-width">
+                                                            <input md-input type="text" placeholder="Должность" name="position" [(ngModel)]="item.position" #position="ngModel"/>
+                                                        </md-input-container>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <md-input-container class="full-width">
+                                                            <input md-input type="text" placeholder="Обязанности" name="responsibilities" [(ngModel)]="item.responsibilities" #responsibilities="ngModel"/>
+                                                        </md-input-container>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <md-input-container class="full-width">
+                                                            <input md-input type="text" placeholder="Причина ухода" name="reason" [(ngModel)]="item.reason" #reason="ngModel"/>
+                                                        </md-input-container>
+                                                    </div>
+                                                </div>
+                                            </md-list-item>
+                                        </md-list>
+                                    </div>
+                                    <div class="add_row_btn">
+                                        <button class="full-width" md-raised-button (click)="addFormRow('experience')">Добавить опыт работы</button>
+                                    </div>
+                                </div>
+
+								<h4 md-subheader>В каком кафе(закусочной) "СУШИ ВЕСЛА" вы хотите работать?</h4>
+								<md-list-item class="cafes">
+                                    <div class="row">
+                                        <div class="col-sm-4" *ngFor="let cafe of cafes">
+                                            <section class="checkbox-section">
+                                                <md-checkbox class="checkbox-margin" [(ngModel)]="cafe.checked" name="cafes">{{cafe.name}}</md-checkbox>
+                                            </section>
+                                        </div>
+                                    </div>
 								</md-list-item>
-								<md-list-item>
-									<md-input-container class="full-width">
-									<input md-input type="text" placeholder='Как долго Вы планируете работать в компаниии "Суши Весла"?' name="how_long" [(ngModel)]="model.how_long" #how_long="ngModel"/>
-									</md-input-container>
-								</md-list-item>
+                                <br/>
+
+                                <md-list-item>
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <md-input-container class="full-width">
+                                                <input md-input type="text" placeholder="Стаж вождения" name="driving_experience" [(ngModel)]="model.driving_experience" #driving_experience="ngModel"/>
+                                            </md-input-container>
+                                            <br/>
+                                            <md-input-container class="full-width">
+                                                <input md-input type="text" placeholder='Как долго Вы планируете работать в компаниии "Суши Весла"?' name="how_long" [(ngModel)]="model.how_long" #how_long="ngModel"/>
+                                            </md-input-container>
+                                        </div>
+                                        <div class="col-sm-4 own_car">
+                                            <h4 md-subheader>Есть ли у вас личный автомобиль?</h4>
+                                            <div class="radio_group">
+                                                <md-radio-group class="example-radio-group" [(ngModel)]="model.own_car" name="own_car">
+                                                    <md-radio-button class="radio-button" [value]="1">
+                                                        Да
+                                                    </md-radio-button>
+                                                    <md-radio-button class="radio-button" [value]="0">
+                                                        Нет
+                                                    </md-radio-button>
+                                                </md-radio-group>
+                                            </div>
+                                            <div class="fuel_consumption" [hidden]="model.own_car != 1">
+                                                <md-input-container class="full-width">
+                                                    <input md-input type="text" placeholder="Расход топлива (л/100 км)" name="fuel_consumption" [(ngModel)]="model.fuel_consumption" #fuel_consumption="ngModel"/>
+                                                </md-input-container>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </md-list-item>
 							</md-list>
 						</md-card-content>
 						<md-card-actions>
-							<button md-raised-button [disabled]="loading">Register</button>
-							<a md-button [routerLink]="['/']">Cancel</a>
+							<button md-raised-button [disabled]="loading">Оформить анкету</button>
 						</md-card-actions>
 						<div class="spinner">
 							<md-spinner *ngIf="loading"></md-spinner>

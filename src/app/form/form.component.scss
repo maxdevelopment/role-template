@@ -12,3 +12,31 @@
 		display: block;
 	}
 }
+.cafes {
+  .md-checkbox-label {
+    font-size: 14px;
+  }
+}
+.own_car {
+  h4 {
+    padding-left: 0;
+  }
+  .radio_group {
+    margin-bottom: 15px;
+  }
+  .radio-button {
+    margin-right: 15px;
+  }
+}
+.form_constructor {
+  padding: 10px 0;
+  .add_row_btn {
+    padding: 0 15px;
+  }
+}
+.education_form {
+  margin: 11px 0;
+  .md-select-trigger {
+    min-width: inherit;
+  }
+}
