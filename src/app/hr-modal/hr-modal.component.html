@@ -14,13 +14,13 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <md-input-container class="full-width">
-                                                    <input md-input type="text" placeholder="Ф.И.О." name="username" [(ngModel)]="model.username" #username="ngModel" disabled required/>
+                                                    <input md-input type="text" value=" " placeholder="Ф.И.О." name="username" [(ngModel)]="model.username" #username="ngModel" disabled required/>
                                                 </md-input-container>
                                                 <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <md-input-container class="full-width">
-                                                    <input md-input type="text" placeholder="Дата рождения (старше 18 лет)" name="birthdate" [(ngModel)]="model.birthdate" #birthdate="ngModel" disabled required/>
+                                                    <input md-input type="text" value=" " placeholder="Дата рождения (старше 18 лет)" name="birthdate" [(ngModel)]="model.birthdate" #birthdate="ngModel" disabled required/>
                                                 </md-input-container>
                                                 <div *ngIf="f.submitted && !birthdate.valid" class="help-block">Birthdate is required</div>
                                             </div>
@@ -30,13 +30,13 @@
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 <md-input-container class="full-width">
-                                                    <input md-input type="text" placeholder="Адрес" name="address" [(ngModel)]="model.address" #address="ngModel" disabled required/>
+                                                    <input md-input type="text" value=" " placeholder="Адрес" name="address" [(ngModel)]="model.address" #address="ngModel" disabled required/>
                                                 </md-input-container>
                                                 <div *ngIf="f.submitted && !address.valid" class="help-block">Address is required</div>
                                             </div>
                                             <div class="col-sm-6">
                                                 <md-input-container class="full-width">
-                                                    <input md-input type="text" placeholder="Телефон" name="phone" [(ngModel)]="model.phone" #phone="ngModel" disabled required/>
+                                                    <input md-input type="text" value=" " placeholder="Телефон" name="phone" [(ngModel)]="model.phone" #phone="ngModel" disabled required/>
                                                 </md-input-container>
                                                 <div *ngIf="f.submitted && !phone.valid" class="help-block">Phone is required</div>
                                             </div>
@@ -44,13 +44,13 @@
                                     </md-list-item>
                                     <md-list-item>
                                         <md-input-container class="full-width">
-                                            <input md-input type="text" placeholder="Должность сотрудника" name="position" [(ngModel)]="model.position" #position="ngModel" disabled required/>
+                                            <input md-input type="text" value=" " placeholder="Должность сотрудника" name="position" [(ngModel)]="model.position" #position="ngModel" disabled required/>
                                         </md-input-container>
                                         <div *ngIf="f.submitted && !position.valid" class="help-block">Position is required</div>
                                     </md-list-item>
                                     <md-list-item>
                                         <md-input-container class="full-width">
-                                            <input md-input type="text" placeholder='Как долго Вы планируете работать в компаниии "Суши Весла"?' name="how_long" [(ngModel)]="model.how_long" #how_long="ngModel" disabled/>
+                                            <input md-input type="text" value=" " placeholder='Как долго Вы планируете работать в компаниии "Суши Весла"?' name="how_long" [(ngModel)]="model.how_long" #how_long="ngModel" disabled/>
                                         </md-input-container>
                                     </md-list-item>
                                 </md-list>
