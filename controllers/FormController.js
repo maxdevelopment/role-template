@@ -1,7 +1,6 @@
 var FormModel = require('../models/Forms').FormModel;
 
 exports.create = function (req, res) {
-  console.log(req.body);
 
   var JobForm = new FormModel({
     full_name: req.body.username,
@@ -15,11 +14,13 @@ exports.create = function (req, res) {
   });
 
   JobForm.save()
-    .catch(function (err) {
-      // res.json({success: false, msg: err.message});
-      console.log(err.message);
-    })
     .then(function () {
-      res.json({success: true, msg: 'Successful created.'});
+      return res.json({success: true, msg: 'Successful created.'});
+    }, function (err) {
+      var errors = [];
+      for (var key in err.errors) {
+        errors.push({key: key, msg: err.errors[key].message});
+      }
+      return res.json({success: false, msg: errors});
     });
 };
