@@ -51,39 +51,39 @@
                                 <div class="form_constructor">
                                     <div class="education">
                                         <md-list>
-                                            <md-list-item *ngFor="let item of model.educations">
+                                            <md-list-item *ngFor="let item of model.educations; let i = index;">
                                                 <div class="row">
                                                     <div class="col-sm-3">
                                                         <div class="row">
                                                             <div class="col-sm-6">
                                                                 <md-input-container class="full-width">
-                                                                    <input md-input type="text" placeholder="C" name="start" [(ngModel)]="item.start" #start="ngModel"/>
+                                                                    <input md-input type="text" placeholder="C" name="start_{{i}}" [(ngModel)]="item.start" #start="ngModel"/>
                                                                 </md-input-container>
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <md-input-container class="full-width">
-                                                                    <input md-input type="text" placeholder="По" name="end" [(ngModel)]="item.end" #end="ngModel"/>
+                                                                    <input md-input type="text" placeholder="По" name="end_{{i}}" [(ngModel)]="item.end" #end="ngModel"/>
                                                                 </md-input-container>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <md-input-container class="full-width">
-                                                            <input md-input type="text" placeholder="Название" name="name" [(ngModel)]="item.name" #name="ngModel"/>
+                                                            <input md-input type="text" placeholder="Название" name="name_{{i}}" [(ngModel)]="item.name" #name="ngModel"/>
                                                         </md-input-container>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <md-input-container class="full-width">
-                                                            <input md-input type="text" placeholder="Факультет" name="faculty" [(ngModel)]="item.faculty" #faculty="ngModel"/>
+                                                            <input md-input type="text" placeholder="Факультет" name="faculty_{{i}}" [(ngModel)]="item.faculty" #faculty="ngModel"/>
                                                         </md-input-container>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <md-input-container class="full-width">
-                                                            <input md-input type="text" placeholder="Специальность" name="speciality" [(ngModel)]="item.speciality" #speciality="ngModel"/>
+                                                            <input md-input type="text" placeholder="Специальность" name="speciality_{{i}}" [(ngModel)]="item.speciality" #speciality="ngModel"/>
                                                         </md-input-container>
                                                     </div>
                                                     <div class="col-sm-2">
-                                                        <md-select class="full-width education_form" placeholder="Форма" name="form" [(ngModel)]="item.form">
+                                                        <md-select class="full-width education_form" placeholder="Форма" name="form_{{i}}" [(ngModel)]="item.form">
                                                             <md-option [value]="'Очная'">Очная</md-option>
                                                             <md-option [value]="'Заочная'">Заочная</md-option>
                                                             <md-option [value]="'Вечерняя'">Вечерняя</md-option>
@@ -102,40 +102,40 @@
                                 <div class="form_constructor">
                                     <div class="experience">
                                         <md-list>
-                                            <md-list-item *ngFor="let item of model.experience">
+                                            <md-list-item *ngFor="let item of model.experience; let i = index;">
                                                 <div class="row">
                                                     <div class="col-sm-3">
                                                         <div class="row">
                                                             <div class="col-sm-6">
                                                                 <md-input-container class="full-width">
-                                                                    <input md-input type="text" placeholder="C" name="start" [(ngModel)]="item.start" #start="ngModel"/>
+                                                                    <input md-input type="text" placeholder="C" name="start_{{i}}" [(ngModel)]="item.start" #start="ngModel"/>
                                                                 </md-input-container>
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <md-input-container class="full-width">
-                                                                    <input md-input type="text" placeholder="По" name="end" [(ngModel)]="item.end" #end="ngModel"/>
+                                                                    <input md-input type="text" placeholder="По" name="end_{{i}}" [(ngModel)]="item.end" #end="ngModel"/>
                                                                 </md-input-container>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <md-input-container class="full-width">
-                                                            <input md-input type="text" placeholder="Сфера работы" name="sphere" [(ngModel)]="item.sphere" #sphere="ngModel"/>
+                                                            <input md-input type="text" placeholder="Сфера работы" name="sphere_{{i}}" [(ngModel)]="item.sphere" #sphere="ngModel"/>
                                                         </md-input-container>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <md-input-container class="full-width">
-                                                            <input md-input type="text" placeholder="Должность" name="position" [(ngModel)]="item.position" #position="ngModel"/>
+                                                            <input md-input type="text" placeholder="Должность" name="position_{{i}}" [(ngModel)]="item.position" #position="ngModel"/>
                                                         </md-input-container>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <md-input-container class="full-width">
-                                                            <input md-input type="text" placeholder="Обязанности" name="responsibilities" [(ngModel)]="item.responsibilities" #responsibilities="ngModel"/>
+                                                            <input md-input type="text" placeholder="Обязанности" name="responsibilities_{{i}}" [(ngModel)]="item.responsibilities" #responsibilities="ngModel"/>
                                                         </md-input-container>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <md-input-container class="full-width">
-                                                            <input md-input type="text" placeholder="Причина ухода" name="reason" [(ngModel)]="item.reason" #reason="ngModel"/>
+                                                            <input md-input type="text" placeholder="Причина ухода" name="reason_{{i}}" [(ngModel)]="item.reason" #reason="ngModel"/>
                                                         </md-input-container>
                                                     </div>
                                                 </div>
