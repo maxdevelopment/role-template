@@ -11,7 +11,7 @@ exports.worksheets = function (socket) {
           if (err) throw err;
         })
         .then(function (data) {
-          socket.emit('worksheets', {msg: data});
+          socket.emit('worksheets', data);
         })
     }
   });
