@@ -47,10 +47,15 @@ md-card-actions {
 }
 .worksheets {
   margin: 20px 0;
+  .worksheet-card {
+    margin-bottom: 30px;
+  }
 }
 md-dialog-container {
   max-height: 90vh;
+  min-height: 90vh;
 }
 @import './app/app.component';
 @import './app/login/login.component';
 @import './app/register/register.component';
+@import './app/hr-modal/hr-modal.component';

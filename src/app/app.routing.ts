@@ -7,6 +7,7 @@ import { AuthGuard } from './_guards/index';
 import { FormComponent } from './form/form.component';
 import { ArchiveComponent } from './archive/archive.component';
 import { DataBaseComponent } from './data-base/data-base.component';
+import { HrModalComponent } from './hr-modal/hr-modal.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent, canActivate: [AuthGuard] },
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
     { path: 'form', component: FormComponent },
     { path: 'archive', component: ArchiveComponent },
     { path: 'db', component: DataBaseComponent },
+    { path: 'modal-form', component: HrModalComponent },
 
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

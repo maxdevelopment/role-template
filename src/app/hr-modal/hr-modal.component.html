@@ -1,0 +1,121 @@
+<md-tab-group>
+    <md-tab label="Анкета">
+        <div class="row worksheet_modal_row">
+            <div class="col-sm-9">
+                <div class="guest_form">
+                    <md-toolbar>
+                        <span>Информация о сотруднике</span>
+                    </md-toolbar>
+                    <md-card class="center-form">
+                        <form name="form" (ngSubmit)="f.form.valid && submit_register()" #f="ngForm" novalidate disabled="true">
+                            <md-card-content>
+                                <md-list>
+                                    <md-list-item>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <md-input-container class="full-width">
+                                                    <input md-input type="text" placeholder="Ф.И.О." name="username" [(ngModel)]="model.username" #username="ngModel" disabled required/>
+                                                </md-input-container>
+                                                <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <md-input-container class="full-width">
+                                                    <input md-input type="text" placeholder="Дата рождения (старше 18 лет)" name="birthdate" [(ngModel)]="model.birthdate" #birthdate="ngModel" disabled required/>
+                                                </md-input-container>
+                                                <div *ngIf="f.submitted && !birthdate.valid" class="help-block">Birthdate is required</div>
+                                            </div>
+                                        </div>
+                                    </md-list-item>
+                                    <md-list-item>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <md-input-container class="full-width">
+                                                    <input md-input type="text" placeholder="Адрес" name="address" [(ngModel)]="model.address" #address="ngModel" disabled required/>
+                                                </md-input-container>
+                                                <div *ngIf="f.submitted && !address.valid" class="help-block">Address is required</div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <md-input-container class="full-width">
+                                                    <input md-input type="text" placeholder="Телефон" name="phone" [(ngModel)]="model.phone" #phone="ngModel" disabled required/>
+                                                </md-input-container>
+                                                <div *ngIf="f.submitted && !phone.valid" class="help-block">Phone is required</div>
+                                            </div>
+                                        </div>
+                                    </md-list-item>
+                                    <md-list-item>
+                                        <md-input-container class="full-width">
+                                            <input md-input type="text" placeholder="Должность сотрудника" name="position" [(ngModel)]="model.position" #position="ngModel" disabled required/>
+                                        </md-input-container>
+                                        <div *ngIf="f.submitted && !position.valid" class="help-block">Position is required</div>
+                                    </md-list-item>
+                                    <md-list-item>
+                                        <md-input-container class="full-width">
+                                            <input md-input type="text" placeholder='Как долго Вы планируете работать в компаниии "Суши Весла"?' name="how_long" [(ngModel)]="model.how_long" #how_long="ngModel" disabled/>
+                                        </md-input-container>
+                                    </md-list-item>
+                                </md-list>
+                            </md-card-content>
+                        </form>
+                    </md-card>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <md-toolbar>
+                    <span>Опции</span>
+                </md-toolbar>
+                <form class="worksheet_actions">
+                    <md-select placeholder="Действие с анкетой" [(ngModel)]="model.action" name="action">
+                        <md-option *ngFor="let action of actions" [value]="action.value">
+                            {{ action.viewValue }}
+                        </md-option>
+                    </md-select>
+                    <md-input-container class="full-width" [hidden]="model.action!=='accept-1'">
+                        <textarea md-input placeholder="Комментарий"></textarea>
+                    </md-input-container>
+                    <button md-raised-button style="margin-top: 20px;">Подтвердить</button>
+                </form>
+            </div>
+        </div>
+    </md-tab>
+    <md-tab label="Комментарии">
+        <div class="row">
+            <div class="col-sm-8">
+                <md-list>
+                    <md-list-item *ngFor="let message of messages">
+                        <img md-list-avatar src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg" alt="...">
+                        <h3 md-line> Марко Поло </h3>
+                        <p md-line>
+                            Контент сообщения
+                        </p>
+                    </md-list-item>
+                </md-list>
+            </div>
+            <div class="col-sm-4">
+                <form action="">
+                    <md-input-container class="full-width">
+                        <textarea md-input placeholder="Оставить комментарий"></textarea>
+                    </md-input-container>
+                    <br/>
+                    <button md-raised-button>Отправить</button>
+                </form>
+            </div>
+        </div>
+    </md-tab>
+    <md-tab label="История изменений">
+        <md-list>
+            <h3 md-subheader>Archive</h3>
+            <md-list-item *ngFor="let folder of folders">
+                <md-icon md-list-avatar>folder</md-icon>
+                <h4 md-line>{{folder.name}}</h4>
+                <p md-line> {{folder.updated | date}} </p>
+            </md-list-item>
+            <md-divider></md-divider>
+            <h3 md-subheader>Notes</h3>
+            <md-list-item *ngFor="let note of notes">
+                <md-icon md-list-avatar>note</md-icon>
+                <h4 md-line>{{note.name}}</h4>
+                <p md-line> {{note.updated | date}} </p>
+            </md-list-item>
+        </md-list>
+    </md-tab>
+</md-tab-group>

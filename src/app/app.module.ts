@@ -17,6 +17,7 @@ import {RegisterComponent} from './register/index';
 import {FormComponent} from './form/form.component';
 import { ArchiveComponent } from './archive/archive.component';
 import { DataBaseComponent } from './data-base/data-base.component';
+import { HrModalComponent } from './hr-modal/hr-modal.component';
 
 @NgModule({
     declarations: [
@@ -27,7 +28,8 @@ import { DataBaseComponent } from './data-base/data-base.component';
         RegisterComponent,
         FormComponent,
         ArchiveComponent,
-        DataBaseComponent
+        DataBaseComponent,
+        HrModalComponent
     ],
     imports: [
         MaterialModule.forRoot(),

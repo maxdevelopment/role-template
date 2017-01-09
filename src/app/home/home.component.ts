@@ -3,7 +3,7 @@
 import { User } from '../_models/index';
 import { UserService, SocketService } from '../_services/index';
 import {MdDialog, MdDialogRef} from '@angular/material';
-import {FormComponent} from '../form/form.component';
+import { HrModalComponent } from '../hr-modal/hr-modal.component';
 
 @Component({
     templateUrl: './home.component.html'
@@ -11,11 +11,12 @@ import {FormComponent} from '../form/form.component';
 
 export class HomeComponent implements OnInit {
     currentUser: User;
-    users: User[] = [];
     worksheets: Array<any> = [];
+    items: Array<any> = [];
 
     constructor(private userService: UserService, private socket: SocketService, public modal:MdDialog) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        this.items = [1,2,3,4,5,6,7,8];
     }
 
     ngOnInit() {
@@ -31,7 +32,9 @@ export class HomeComponent implements OnInit {
     }
 
     showInfo () {
-        let dialogRef = this.modal.open(FormComponent);
+        let dialogRef = this.modal.open(HrModalComponent,{
+            width: '60%'
+        });
         dialogRef.afterClosed().subscribe(result => {
             console.log(result)
         });
