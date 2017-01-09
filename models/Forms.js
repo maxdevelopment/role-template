@@ -1,6 +1,15 @@
 var mongoose = require('mongoose');
+var validate = require('mongoose-validator');
 var Schema = mongoose.Schema;
 var db = require('../config/database').db;
+
+var phoneValidator = [
+  validate({
+    validator: 'isNumeric',
+    passIfEmpty: false,
+    message: 'Phone should contain digits only'
+  })
+];
 
 var FormSchema = new Schema({
     worksheet_status: {
@@ -24,7 +33,8 @@ var FormSchema = new Schema({
     phone: {
       type: String,
       trim: true,
-      required: true
+      required: true,
+      validate: phoneValidator
     },
     position: {
       type: String,
