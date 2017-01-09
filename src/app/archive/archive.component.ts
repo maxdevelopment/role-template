@@ -24,7 +24,7 @@ export class ArchiveComponent implements OnInit {
     }
 
     private listenWorksheets() {
-        this.socket.on('worksheets').subscribe(worksheets => {
+        this.socket.on('worksheets-archive').subscribe(worksheets => {
             this.worksheets = worksheets;
             console.log(this.worksheets)
         });
