@@ -3,14 +3,18 @@ var Schema = mongoose.Schema;
 var db = require('../config/database').db;
 
 var FormSchema = new Schema({
+    worksheet_status: {
+      type: Number,
+      default: 1
+    },
     name: {
       last: String,
       first: String,
       middle: String
     },
     birth_date: {
-      type: Date
-      // required: true
+      type: Date,
+      required: true
     },
     address: {
       type: String,
@@ -30,6 +34,16 @@ var FormSchema = new Schema({
     rests: {
       type: Schema.Types.Mixed
     },
+    work_duration: {
+      type: String,
+      trim: true
+    },
+    tags: {
+      type: Schema.Types.Mixed
+    },
+    comments: {
+      type: Schema.Types.Mixed
+    },
     created: {
       type: Date,
       default: Date.now
@@ -43,6 +57,15 @@ var FormSchema = new Schema({
     toJSON: {virtuals: true}
   }
 );
+
+FormSchema.virtual('status').get(function () {
+  switch (this.worksheet_status) {
+    case 1:
+      return 'new';
+    default:
+      return 'max.n status';
+  }
+});
 
 FormSchema.virtual('full_name').get(function () {
   return this.name.last + ' ' + this.name.first + ' ' + this.name.middle;
