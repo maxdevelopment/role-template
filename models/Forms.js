@@ -42,11 +42,25 @@ var FormSchema = new Schema({
       trim: true
     },
     rests: {
+      type: Array
+    },
+    how_long: {
+      type: String
+    },
+    educations: {
       type: Schema.Types.Mixed
     },
-    work_duration: {
-      type: String,
-      trim: true
+    experience: {
+      type: Schema.Types.Mixed
+    },
+    driving_experience: {
+      type: Number
+    },
+    own_car: {
+      type: Boolean
+    },
+    fuel_consumption: {
+      type: Number
     },
     tags: {
       type: Schema.Types.Mixed
@@ -63,17 +77,21 @@ var FormSchema = new Schema({
     }
   },
   {
-    toObject: {virtuals: true},
-    toJSON: {virtuals: true}
+    toObject: {virtuals: true, getters: true},
+    toJSON: {virtuals: true, getters: true}
   }
 );
 
-FormSchema.virtual('status').get(function () {
-  switch (this.worksheet_status) {
+FormSchema.path('worksheet_status').get(function (value) {
+  switch (value) {
     case 1:
       return 'new';
+    case 2:
+      return 'work';
+    case 3:
+      return 'archive';
     default:
-      return 'max.n status';
+      return 'unknown';
   }
 });
 

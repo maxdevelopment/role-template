@@ -8,8 +8,13 @@ exports.create = function (req, res) {
     address: req.body.address,
     phone: req.body.phone,
     position: req.body.position,
-    rests: req.body.cafe,
-    work_duration: req.body.how_long,
+    rests: req.body.cafes,
+    how_long: req.body.how_long,
+    educations: req.body.educations,
+    experience: req.body.experience,
+    driving_experience: req.body.driving_experience,
+    own_car: req.body.own_car,
+    fuel_consumption: req.body.fuel_consumption,
     updated: Date.now()
   });
 
